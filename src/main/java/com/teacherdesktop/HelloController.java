@@ -1,4 +1,4 @@
-package com.example.teacherdesktop;
+package com.teacherdesktop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

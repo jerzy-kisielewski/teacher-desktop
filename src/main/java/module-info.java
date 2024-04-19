@@ -4,6 +4,6 @@ module com.example.teacherdesktop {
 
     requires org.controlsfx.controls;
 
-    opens com.example.teacherdesktop to javafx.fxml;
-    exports com.example.teacherdesktop;
+    opens com.teacherdesktop to javafx.fxml;
+    exports com.teacherdesktop;
 }
