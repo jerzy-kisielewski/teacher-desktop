@@ -1,4 +1,4 @@
 package com.teacherdesktop;
 
-public class test {
+public class test  {
 }
