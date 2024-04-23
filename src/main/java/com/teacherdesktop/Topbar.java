@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 public class Topbar extends HBox {
 
-    public Topbar() throws FileNotFoundException {
+    public Topbar(){
 
         ImageView setImg = null;
         ImageView groupImg = null;
@@ -31,10 +31,17 @@ public class Topbar extends HBox {
         setImg = new ImageView(image4);
 
         //burgerek
-        MenuItem itm1 = new MenuItem("opcja 1");
-        MenuItem itm2 = new MenuItem("opcja 2");
-        MenuItem itm3 = new MenuItem("opcja 3");
-        MenuButton burger = new MenuButton("", setImg, itm1, itm2, itm3);
+        Menu menuFile = new Menu("Plik");
+        MenuItem fileItm1 = new MenuItem("Otwórz");
+        MenuItem fileItm2 = new MenuItem("Zapisz");
+        menuFile.getItems().addAll(fileItm1, fileItm2);
+
+        MenuItem itm1 = new MenuItem("Ustawienia");
+        MenuItem itm2 = new MenuItem("Drukuj");
+        MenuItem itm3 = new MenuItem("Wyjdź");
+
+        MenuButton burger = new MenuButton("", setImg);
+        burger.getItems().addAll(menuFile, itm1, itm2, itm3);
 
         //przyciski
         Button btn1 = new Button("");
