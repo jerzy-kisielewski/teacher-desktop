@@ -1,36 +1,60 @@
 package com.teacherdesktop;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ToolBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Stage;
-
-
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class Topbar extends HBox {
 
-    public Topbar() {
+    public Topbar(){
 
+        ImageView setImg = null;
+        ImageView groupImg = null;
+        ImageView txtImg = null;
+        ImageView treeImg = null;
 
-        Button burger = new Button("≡");
-        Button btn1 = new Button("GROUPS");
-        Button btn2 = new Button("TXT");
-        Button btn3 = new Button("TREE");
+        //Wczytanie grafiki
+        InputStream input = getClass().getResourceAsStream("/com/teacherdesktop/TopbarImgs/groups.png");
+        Image image = new Image(input);
+        groupImg = new ImageView(image);
+        input = getClass().getResourceAsStream("/com/teacherdesktop/TopbarImgs/texts.png");
+        Image image2 = new Image(input);
+        txtImg = new ImageView(image2);
+        input = getClass().getResourceAsStream("/com/teacherdesktop/TopbarImgs/tree.png");
+        Image image3 = new Image(input);
+        treeImg = new ImageView(image3);
+        input = getClass().getResourceAsStream("/com/teacherdesktop/TopbarImgs/burger.png");
+        Image image4 = new Image(input);
+        setImg = new ImageView(image4);
 
-        burger.setMinSize(50,50);
-        btn1.setMinSize(50,50);
-        btn2.setMinSize(50,50);
-        btn3.setMinSize(50,50);
+        //burgerek
+        Menu menuFile = new Menu("Plik");
+        MenuItem fileItm1 = new MenuItem("Otwórz");
+        MenuItem fileItm2 = new MenuItem("Zapisz");
+        menuFile.getItems().addAll(fileItm1, fileItm2);
+
+        MenuItem itm1 = new MenuItem("Ustawienia");
+        MenuItem itm2 = new MenuItem("Drukuj");
+        MenuItem itm3 = new MenuItem("Wyjdź");
+
+        MenuButton burger = new MenuButton("", setImg);
+        burger.getItems().addAll(menuFile, itm1, itm2, itm3);
+
+        //przyciski
+        Button btn1 = new Button("");
+        btn1.setGraphic(groupImg);
+        Button btn2 = new Button("");
+        btn2.setGraphic(txtImg);
+        Button btn3 = new Button("");
+        btn3.setGraphic(treeImg);
+
+        burger.setMinSize(70,50);
+        btn1.setMinSize(60,50);
+        btn2.setMinSize(60,50);
+        btn3.setMinSize(60,50);
 
         Label chatLabel = new Label("CZAT");
         chatLabel.setPrefSize(2000,30);
@@ -44,7 +68,6 @@ public class Topbar extends HBox {
         this.setStyle(
                 "-fx-background-color: #6298e5; " +
                 "-fx-padding: 10");
-
         this.setSpacing(10);
         this.setPrefSize(getMaxWidth(), 30);
 
