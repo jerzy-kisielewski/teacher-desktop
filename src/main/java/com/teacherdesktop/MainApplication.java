@@ -22,7 +22,7 @@ public class MainApplication extends Application {
         layout.setTop(topbar);
         layout.setLeft(groupsBar);
         layout.setCenter(chat);
-        Scene scene = new Scene(layout, 320, 240);
+        Scene scene = new Scene(layout, 800, 600);
         stage.setMaximized(true);
         stage.setTitle("TeacherDesktop");
         stage.setScene(scene);

@@ -27,7 +27,8 @@ public class DataStoreManager {
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
             while ((line = reader.readLine()) != null) {
-                DataStore.hostIp = line.substring(10, 24);
+                DataStore.hostIp = line.substring(line.indexOf("(") + 1, line.indexOf(")"));
+                System.out.println(DataStore.hostIp);
                 Workspace workspace = new Workspace();
                 workspace.ip = line.substring(10, 24);
                 DataStore.Workspaces.add(workspace);

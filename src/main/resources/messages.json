@@ -1,0 +1,23 @@
+[
+  {
+    "ip" : "192.168.47.149",
+    "firstName" : "teacher",
+    "lastName" : "desktop",
+    "message" : "Makaron trzeba zawsze gotować, inaczej jest niesmaczny",
+    "created" : ""
+  },
+  {
+    "ip" : "192.168.1.11",
+    "firstName" : "student",
+    "lastName" : "desktop",
+    "message" : "Tak",
+    "created" : ""
+  },
+  {
+    "ip" : "192.168.0.0",
+    "firstName" : "student",
+    "lastName" : "desktop",
+    "message" : "Nie",
+    "created" : ""
+  }
+]
