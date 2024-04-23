@@ -17,8 +17,9 @@ public class MainApplication extends Application {
 
         layout.setTop(topbar);
         layout.setLeft(groupsBar);
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml")); nw czy to potrzebne czy było do testów lol
         Scene scene = new Scene(layout, 320, 240);
+        scene.getStylesheets().add(getClass().getResource("/com/teacherdesktop/css/style.css").toExternalForm());
+
         stage.setMaximized(true);
         stage.setTitle("TeacherDesktop");
         stage.setScene(scene);
