@@ -11,15 +11,18 @@ import java.io.IOException;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        DataStoreManager.saveWorkSpaces();
+
         Topbar topbar = new Topbar();
         GroupsSidebar groupsBar = new GroupsSidebar();
+        Chat chat = new Chat();
+
         BorderPane layout = new BorderPane();
 
         layout.setTop(topbar);
         layout.setLeft(groupsBar);
-        Scene scene = new Scene(layout, 320, 240);
-        scene.getStylesheets().add(getClass().getResource("/com/teacherdesktop/css/style.css").toExternalForm());
-
+        layout.setCenter(chat);
+        Scene scene = new Scene(layout, 800, 600);
         stage.setMaximized(true);
         stage.setTitle("TeacherDesktop");
         stage.setScene(scene);
