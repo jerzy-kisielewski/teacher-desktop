@@ -11,13 +11,17 @@ import java.io.IOException;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        DataStoreManager.saveWorkSpaces();
+
         Topbar topbar = new Topbar();
         GroupsSidebar groupsBar = new GroupsSidebar();
+        Chat chat = new Chat();
+
         BorderPane layout = new BorderPane();
 
         layout.setTop(topbar);
         layout.setLeft(groupsBar);
-//        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml")); nw czy to potrzebne czy było do testów lol
+        layout.setCenter(chat);
         Scene scene = new Scene(layout, 320, 240);
         stage.setMaximized(true);
         stage.setTitle("TeacherDesktop");
