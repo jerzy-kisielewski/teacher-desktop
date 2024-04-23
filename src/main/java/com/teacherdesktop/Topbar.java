@@ -4,8 +4,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
+import static javafx.application.Platform.exit;
 
 public class Topbar extends HBox {
 
@@ -32,16 +32,16 @@ public class Topbar extends HBox {
 
         //burgerek
         Menu menuFile = new Menu("Plik");
-        MenuItem fileItm1 = new MenuItem("Otwórz");
-        MenuItem fileItm2 = new MenuItem("Zapisz");
-        menuFile.getItems().addAll(fileItm1, fileItm2);
+        MenuItem fileItmOpen = new MenuItem("Otwórz");
+        MenuItem fileItmSave = new MenuItem("Zapisz");
+        menuFile.getItems().addAll(fileItmOpen, fileItmSave);
 
-        MenuItem itm1 = new MenuItem("Ustawienia");
-        MenuItem itm2 = new MenuItem("Drukuj");
-        MenuItem itm3 = new MenuItem("Wyjdź");
+        MenuItem itmSettings = new MenuItem("Ustawienia");
+        MenuItem itmPrint = new MenuItem("Drukuj");
+        MenuItem itmExit = new MenuItem("Wyjdź");
 
         MenuButton burger = new MenuButton("", setImg);
-        burger.getItems().addAll(menuFile, itm1, itm2, itm3);
+        burger.getItems().addAll(menuFile, itmSettings, itmPrint, itmExit);
 
         //przyciski
         Button btn1 = new Button("");
@@ -71,5 +71,36 @@ public class Topbar extends HBox {
         this.setSpacing(10);
         this.setPrefSize(getMaxWidth(), 30);
 
+        itmExit.setOnAction(event->{
+            exit();
+        });
+
+        itmPrint.setOnAction(event ->{
+            System.out.println("Otwarcie okna do druku");
+        });
+
+        itmSettings.setOnAction(event->{
+            System.out.println("Otwarcie okna ustawień");
+        });
+
+        fileItmOpen.setOnAction(event ->{
+            System.out.println("Otwarcie pliku");
+        });
+
+        fileItmSave.setOnAction(event ->{
+            System.out.println("Zapisano plik");
+        });
+
+        btn1.setOnAction(event -> {
+            System.out.println("Otwarcie menu grup");
+        });
+
+        btn2.setOnAction(event -> {
+            System.out.println("Otwarcie czatu");
+        });
+
+        btn3.setOnAction(event -> {
+            System.out.println("Otwarcie menu vcs");
+        });
     }
 }
