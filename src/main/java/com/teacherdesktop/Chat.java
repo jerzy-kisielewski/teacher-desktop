@@ -29,7 +29,7 @@ public class Chat extends VBox {
     private boolean hostMessage = false;
     private TextField inputTextField;
     private Button sendButton;
-    private int margin = 70;
+    private int margin = 40;
 
     public Chat() {
         initVBox();
@@ -106,7 +106,7 @@ public class Chat extends VBox {
         } else {
             rightSide.setMargin(label, new Insets(margin, 10, 0, 0));
             hostMessage = true;
-            margin += 70;
+            margin += 40;
         }
     }
 
@@ -128,7 +128,7 @@ public class Chat extends VBox {
         } else {
             leftSide.setMargin(label, new Insets(margin, 0, 0, 10));
             hostMessage = false;
-            margin += 70;
+            margin += 40;
         }
     }
 
